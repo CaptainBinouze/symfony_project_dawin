@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        <h1>Hello World !</h1>
-    </body>
-</html>
+{% extends "layout.html.twig" %}
+        
+{% block body %}
+    <h1>Hello World !</h1>
+    <a href="{{ path('pizzas_list') }}">Les pizzas</a>
+{% endblock %}
