@@ -3,18 +3,19 @@
 // src/Controller/DefaultController.php
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class DefaultController
+class DefaultController extends Controller
 {
     /**
      * @Route("/")
+     * @Template()
      */
     public function indexAction()
     {
-        return new Response(
-            '<html><body>Hello world!</body></html>'
-        );
+        return [];
     }
 }

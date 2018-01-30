@@ -1,0 +1,44 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+header {
+    margin-top:0px;
+    padding-top:0;
+    width:100%;
+    padding-top:10px;
+}
+
+h1 {
+    text-align:center;
+    color:#c00;
+    margin:0;
+    font-size:95px;
+    font-family:southern;
+}
+
+header nav {
+    text-align:center;
+}
+
+.navbar-contents {
+    width:70%;
+    margin:auto;
+}
+
+section article {
+    width:70%;
+    margin:auto;
+}
+
+.navbar-login {
+    float:right;
+    padding-top:5px;
+}
+
+.navbar-login .input-group {
+    width:160px;
+    float:left;
+    margin:2px;
+}
