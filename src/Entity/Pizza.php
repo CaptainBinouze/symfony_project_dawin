@@ -130,7 +130,6 @@ class Pizza
         return $this->price;
     }
 
-
     /**
      * Get ingredients
      * 
