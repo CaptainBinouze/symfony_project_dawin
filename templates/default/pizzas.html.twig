@@ -15,6 +15,16 @@
                     </li>
                 {% endfor %}
             </ul>
+
+            {% if is_granted("ROLE_ADMIN") %}
+                <div class="well">
+                    <p>
+                        <a class="btn btn-primary" href="/addpizza">Ajouter une pizza</a>
+                    </p>
+                </div>
+            {% endif %}
         </article>
     </section>
 {% endblock %}
+
+

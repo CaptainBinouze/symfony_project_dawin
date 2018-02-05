@@ -1,0 +1,22 @@
+
+{% extends "layout.html.twig" %}
+
+{% block title %}Pizza{% endblock %}   
+
+{% block body %}
+
+    <section>
+        <article>
+            <h2>Ajouter une pizza</h2>
+
+            {{ form_start(form) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.price) }}
+                {{ form_row(form.description) }}
+                {{ form_row(form.ingredients) }}
+
+                <button type="submit">Ajouter</button>
+            {{ form_end(form) }}
+        </article>
+    </section>
+{% endblock %}
