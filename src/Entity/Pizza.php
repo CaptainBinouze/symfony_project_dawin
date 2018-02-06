@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,6 +48,10 @@ class Pizza
      */
     private $price;
 
+    public function __construct()
+    {
+        $this->ingredients = new ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -145,6 +150,16 @@ class Pizza
      */
     public function addIngredient(Ingredient $ingredient)
     {
-        $this->ingredients[] =  $ingredient;
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients->add($ingredient);
+        }
+    }
+
+    /**
+     * Remove ingredient
+     */
+    public function removeIngredient(Ingredient $ingredient)
+    {
+        $this->ingredients->removeElement($ingredient);
     }
 }

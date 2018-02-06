@@ -32,7 +32,12 @@ class Ingredient
      * @ORM\ManyToMany(targetEntity="Pizza", mappedBy="ingredients")
      */
     private $pizzas;
-    
+ 
+    public function __construct()
+    {
+        $this->pizzas = new ArrayCollection();
+    }
+
     /**
      * Get id.
      *
@@ -74,5 +79,13 @@ class Ingredient
      */
     public function __toString(){
         return $this->getName();
+    }
+
+    /**
+     * Add pizza
+     */
+    public function addPizza(Pizza $pizza)
+    {
+        $this->pizzas->add($pizza);
     }
 }
