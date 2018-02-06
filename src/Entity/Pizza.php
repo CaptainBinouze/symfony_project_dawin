@@ -147,12 +147,14 @@ class Pizza
 
     /**
      * Add ingredients
+     * 
+     * @return ingredients
      */
     public function addIngredient(Ingredient $ingredient)
     {
-        if (!$this->ingredients->contains($ingredient)) {
-            $this->ingredients->add($ingredient);
-        }
+        $this->ingredients[] = $ingredient;
+
+        return $this;
     }
 
     /**

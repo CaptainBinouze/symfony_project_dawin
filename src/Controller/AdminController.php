@@ -14,12 +14,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * @Route("/admin/")
+ * @Route("/admin")
  */
 class AdminController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="admin")
      * @Template()
      */
     public function indexAction()
@@ -28,15 +28,15 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("pizza/add", name="add_pizza")
+     * @Route("/pizza/add", name="add_pizza")
      */
     public function pizzaAction(Request $request)
     {
         // 1) build the form
         $pizza = new Pizza();
 
-        //$pizza->addIngredient($this->getDoctrine()->getRepository(Ingredient::class)->findAll());
-        
+        //$ingredients = $this->getDoctrine()->getRepository(Ingredient::class)->findAll();
+
         $form = $this->createForm(PizzaType::class, $pizza);
 
         // 2) handle the submit (will only happen on POST)
@@ -48,7 +48,7 @@ class AdminController extends Controller
             $em->persist($pizza);
             $em->flush();
 
-            return $this->redirectToRoute('presentation');
+            return $this->redirectToRoute('index');
         }
 
         return $this->render(

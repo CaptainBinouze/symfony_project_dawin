@@ -10,12 +10,20 @@
             <h2>Ajouter une pizza</h2>
 
             {{ form_start(form) }}
-                {{ form_row(form.name) }}
-                {{ form_row(form.price) }}
+                <div class="form-group row">
+                    {{ form_label(form.name) }}
+                    {{ form_errors(form.name) }}
+                    {{ form_widget(form.name) }}
+                </div>
+                <div class="form-group row">
+                    {{ form_label(form.price) }}
+                    {{ form_errors(form.price) }}
+                    {{ form_widget(form.price) }}
+                </div>
                 {{ form_row(form.description) }}
                 {{ form_row(form.ingredients) }}
 
-                <button type="submit">Ajouter</button>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
             {{ form_end(form) }}
         </article>
     </section>

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -78,14 +79,7 @@ class Ingredient
      * @return name
      */
     public function __toString(){
-        return $this->getName();
-    }
 
-    /**
-     * Add pizza
-     */
-    public function addPizza(Pizza $pizza)
-    {
-        $this->pizzas->add($pizza);
+        return $this->getName();
     }
 }
