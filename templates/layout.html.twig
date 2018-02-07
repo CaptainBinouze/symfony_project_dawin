@@ -29,7 +29,7 @@
 
                 <div class="navbar-login">
                   {% if app.user == false %}
-                    <form action="/login_check" method="post">
+                    <form action="{{ path("fos_user_security_check") }}" method="post">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             <input type="text" class="form-control" name="_username" />
@@ -38,6 +38,7 @@
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                             <input type="password" class="form-control" name="_password" />
                         </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                         <input type="submit" class="hide" />
                     </form>
                   {% endif %}

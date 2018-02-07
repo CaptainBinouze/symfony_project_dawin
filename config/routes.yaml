@@ -2,12 +2,6 @@ index:
     path: /
     defaults: { _controller: 'App\Controller\DefaultController::index' }
 
-login_check:
-    path: /login/check
-
-logout:
-    path: /logout
-
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
