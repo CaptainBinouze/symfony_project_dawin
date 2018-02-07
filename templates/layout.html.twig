@@ -29,7 +29,7 @@
 
                 <div class="navbar-login">
                   {% if app.user == false %}
-                    <form action="{{ path('login_check') }}" method="post">
+                    <form action="" method="post">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             <input type="text" class="form-control" name="_username" />
@@ -45,7 +45,7 @@
                   {% if app.user != false %}
                     <form action="{{ path('logout') }}" method="post">
                         <div class="input-group">
-                          <label>Hello {{ app.user.getUsername()}}</label>
+                          <h4 class="text-muted">Hello {{ app.user.getUsername()}}</h4>
                         </div>
                         <div class="input-group">
                           <input class="btn btn-danger" type="submit" value="LOGOUT" />

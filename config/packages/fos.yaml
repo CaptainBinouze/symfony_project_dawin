@@ -1,0 +1,11 @@
+framework:
+    templating: { engines: [twig] }
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: App\Entity\User
+    use_flash_notifications: false
+    from_email: {address: "fosub@localhost", sender_name: FOSUB}
+    service:
+        mailer: 'fos_user.mailer.noop'

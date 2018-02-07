@@ -11,4 +11,5 @@ return [
     Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle::class => ['all' => true],
     Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
     Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
+    FOS\UserBundle\FOSUserBundle::class => ['all' => true],
 ];
