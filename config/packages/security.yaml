@@ -17,10 +17,8 @@ security:
                 login_path: fos_user_security_login 
                 check_path: fos_user_security_check
                 csrf_token_generator: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
-                csrf_parameter: _csrf_security_token
-                csrf_token_id: a_private_string
             logout:     
-                path:  /logout
+                path:  fos_user_security_logout
                 target: /
             anonymous:    true
 

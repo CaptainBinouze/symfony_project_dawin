@@ -44,7 +44,7 @@
                   {% endif %}
 
                   {% if app.user != false %}
-                    <form action="{{ path('logout') }}" method="post">
+                    <form action="{{ path('fos_user_security_logout') }}" method="post">
                         <div class="input-group">
                           <h4 class="text-muted">Hello {{ app.user.getUsername()}}</h4>
                         </div>
