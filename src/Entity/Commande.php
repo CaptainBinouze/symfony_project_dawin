@@ -49,6 +49,13 @@ class Commande
      */
     private $created;
 
+    /** 
+     * @var boolean $statut
+     * @ORM\Column(name="statut", type="boolean")
+     * 
+     */
+    private $statut;
+
 
     /**
      * Get id.
@@ -78,6 +85,23 @@ class Commande
         $this->telephone = $tel;
     }
 
+    /**
+     * Get statut.
+     *
+     * @return boolean
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * Set statut.
+     */
+    public function setStatut(boolean $val)
+    {
+        $this->statut = $val;
+    }
     /**
      * Get user.
      *
