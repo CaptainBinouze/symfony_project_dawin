@@ -8,10 +8,11 @@
         <article>
             <h2>Nos pizzas</h2>
 
-            <ul>
+            <ul class="list-group" >
                 {% for pizza in pizzas %}
-                    <li>{{ pizza.name }} 
-                        ( Ingrédients : {{ pizza.ingredients|join(', ') }} )
+                    <li class="list-group-item" >
+                        {{ pizza.name }}
+                        <span class="badge badge-info">{{ pizza.ingredients|join(' | ') }}</span>
                     </li>
                 {% endfor %}
             </ul>
