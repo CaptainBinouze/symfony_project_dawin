@@ -164,4 +164,14 @@ class Pizza
     {
         $this->ingredients->removeElement($ingredient);
     }
+
+    /**
+     * ToString 
+     * 
+     * @return name
+     */
+    public function __toString(){
+
+        return $this->getName() . " (" . $this->getPrice() . ") ";
+    }
 }

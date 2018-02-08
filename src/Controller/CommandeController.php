@@ -3,9 +3,8 @@
 // src/Controller/CommandeController.php
 namespace App\Controller;
 
-use App\Form\PizzaType;
-use App\Entity\Pizza;
-use App\Entity\Ingredient;
+use App\Form\CommandeType;
+use App\Entity\Commande;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,13 +27,13 @@ class CommandeController extends Controller
     }
 
     /**
-     * @Route("/commande/validate", name="validate_commande")
+     * @Route("/new", name="new_commande")
      */
     public function commandeAction(Request $request)
     {
         $commande = new Commande();
 
-        $form = $this->createForm(PizzaType::class, $commande);
+        $form = $this->createForm(CommandeType::class, $commande);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

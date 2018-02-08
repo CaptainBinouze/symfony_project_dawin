@@ -24,7 +24,13 @@
                     {{ form_widget(form.price , {'attr': {'class': 'form-control'} }) }}
                     </div>
                 </div>
-                {{ form_row(form.description) }}
+                <div class="row">
+                    <div class="form-group col-md-6">
+                    {{ form_label(form.description) }}
+                    {{ form_errors(form.description) }}
+                    {{ form_widget(form.description , {'attr': {'class': 'form-control'} }) }}
+                    </div>
+                </div>                
                 {{ form_row(form.ingredients) }}
 
                 <button type="submit" class="btn btn-primary">Ajouter</button>

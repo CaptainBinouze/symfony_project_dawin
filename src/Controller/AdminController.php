@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Form\PizzaType;
+use App\Form\IngredientType;
 use App\Entity\Pizza;
 use App\Entity\Ingredient;
 
@@ -53,6 +54,34 @@ class AdminController extends Controller
 
         return $this->render(
             'pizza/add.html.twig',
+            array('form' => $form->createView())
+        );
+    }
+
+    /**
+     * @Route("/ingredient/add", name="add_ingredient")
+     */
+    public function ingredientAction(Request $request)
+    {
+        // 1) build the form
+        $ingredient = new Ingredient();
+
+        $form = $this->createForm(IngredientType::class, $ingredient);
+
+        // 2) handle the submit (will only happen on POST)
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // 3) save the ingredient
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ingredient);
+            $em->flush();
+
+            return $this->redirectToRoute('index');
+        }
+
+        return $this->render(
+            'admin/ingredient.html.twig',
             array('form' => $form->createView())
         );
     }

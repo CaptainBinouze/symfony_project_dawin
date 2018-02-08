@@ -1,25 +1,27 @@
 {% extends "layout.html.twig" %}
 
-{% block title %}Pizza - Commande{% endblock %}   
+{% block title %}Pizza - Ingredient{% endblock %}   
 
 {% block body %}
 
     <section>
         <article>
-            <h2>Commander une pizza</h2>
+            <h2>Ajout ingredient</h2>
 
+            <div class="container">
             {{ form_start(form) }}
                 <div class="row">
                     <div class="form-group col-md-6">
-                        {{ form_label(form.telephone) }}
-                        {{ form_errors(form.telephone) }}
-                        {{ form_widget(form.telephone , {'attr': {'class': 'form-control'} }) }}
+                        {{ form_label(form.name) }}
+                        {{ form_errors(form.name) }}
+                        {{ form_widget(form.name , {'attr': {'class': 'form-control'} }) }}
                     </div>
                 </div>
-                {{ form_row(form.pizza) }}
 
                 <button type="submit" class="btn btn-primary">Ajouter</button>
             {{ form_end(form) }}
+            </div>
+
         </article>
     </section>
 {% endblock %}

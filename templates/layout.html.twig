@@ -18,7 +18,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ path('presentation') }}"><i class="glyphicon glyphicon-home"></i> Présentation</a></li>
                     <li><a href="{{ path('pizzas_list') }}"><i class="glyphicon glyphicon-list"></i> Les pizzas</a></li>
-                    <li><a href="{{ path('commande') }}"><i class="glyphicon glyphicon-usd"></i> Commander</a></li>
+                    <li><a href="{{ path('new_commande') }}"><i class="glyphicon glyphicon-usd"></i> Commander</a></li>
 
                     {% if is_granted("ROLE_ADMIN") %}
                       <li><a href="/admin"><i class="glyphicon glyphicon-list"></i> Gestion</a></li>
