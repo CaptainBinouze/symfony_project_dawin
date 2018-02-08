@@ -4,11 +4,14 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use App\Entity\Pizza;
+
 /**
  * Commande
  *
  * @ORM\Table(name="commande")
  * @ORM\Entity(repositoryClass="App\Repository\CommandeRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Commande
 {
@@ -29,16 +32,13 @@ class Commande
     private $telephone;
 
     /** 
-     * @ORM\Column(name="id_user")
-     * @ORM\OneToOne(targetEntity="User") 
-     * 
+     * @ORM\OneToOne(targetEntity="User", cascade={"persist"}) 
      */
     private $user;
 
-    /** 
-     * @ORM\Column(name="id_pizza")
-     * @ORM\OneToOne(targetEntity="Pizza") 
-     * 
+    /**
+     * @ORM\ManyToOne(targetEntity="Pizza")
+     * @ORM\JoinColumn(name="pizza_id", referencedColumnName="id")
      */
     private $pizza;
 
@@ -50,8 +50,8 @@ class Commande
     private $created;
 
     /** 
-     * @var boolean $statut
-     * @ORM\Column(name="statut", type="boolean")
+     * @var int $statut
+     * @ORM\Column(name="statut", type="integer")
      * 
      */
     private $statut;
@@ -98,14 +98,23 @@ class Commande
     /**
      * Set statut.
      */
-    public function setStatut(boolean $val)
+    public function setStatut($val)
     {
         $this->statut = $val;
     }
+
+    /**
+     * Set user.
+     * 
+     */
+    public function setUser(User $luser){
+        $this->user = $luser;
+    }
+
     /**
      * Get user.
      *
-     * @return string
+     * @return User
      */
     public function getUser()
     {
@@ -115,11 +124,19 @@ class Commande
     /**
      * Get pizza.
      *
-     * @return string
+     * @return Pizza
      */
     public function getPizza()
     {
         return $this->pizza;
+    }
+
+    /**
+     * Set pizza.
+     */
+    public function setPizza(Pizza $pizz)
+    {
+        $this->pizza = $pizz;
     }
 
     /**

@@ -21,7 +21,7 @@ class CommandeType extends AbstractType
 
     public function getName()
     {
-        return 'command_form';
+        return 'commande_form';
     }
     
     public function configureOptions(OptionsResolver $resolver)

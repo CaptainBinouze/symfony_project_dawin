@@ -39,6 +39,10 @@ class CommandeController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
+            $user = $this->container->get('security.token_storage')->getToken()->getUser();
+
+            $commande->setUser($user);
+            $commande->setStatut(false);
             $em->persist($commande);
             $em->flush();
 
