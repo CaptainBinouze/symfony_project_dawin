@@ -7,19 +7,25 @@
     <section>
         <article>
             <h2>Commander une pizza</h2>
-
-            {{ form_start(form) }}
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        {{ form_label(form.telephone) }}
-                        {{ form_errors(form.telephone) }}
-                        {{ form_widget(form.telephone , {'attr': {'class': 'form-control'} }) }}
+            {% if is_granted("ROLE_USER") %}
+                    
+                {{ form_start(form) }}
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            {{ form_label(form.telephone) }}
+                            {{ form_errors(form.telephone) }}
+                            {{ form_widget(form.telephone , {'attr': {'class': 'form-control'} }) }}
+                        </div>
                     </div>
-                </div>
-                {{ form_row(form.pizza) }}
+                    {{ form_row(form.pizza) }}
 
-                <button type="submit" class="btn btn-primary">Ajouter</button>
-            {{ form_end(form) }}
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                {{ form_end(form) }}
+
+
+            {% else %}
+                <p>Pour passer une commande il faut d'abord vous connecter.. </p>
+            {% endif %}
         </article>
     </section>
 {% endblock %}
