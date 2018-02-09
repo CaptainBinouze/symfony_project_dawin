@@ -12,19 +12,19 @@
                 <thead class="thead-default">
                     <tr>
                         <th>Numéro</th>
+                        <th>Date</th>
                         <th>Telephone</th>
                         <th>Pizza</th>
                         <th>User</th>
-                        <th>Action</th>
                     </tr>
                 <thead>
                 {% for commande in commandes %}
                     <tr>
                         <td>{{ commande.id }}</td>
+                        <td>{{ commande.created|date('d/m/Y H:i:s') }}</td>
                         <td>{{ commande.telephone }}</td>
                         <td>{{ commande.pizza }}</td>
                         <td>{{ commande.user }}</td>
-                        <td><a class="btn btn-primary" href="{{ path('trait_commande', { 'num': commande.id }) }}">LIVREE</a>
                     </tr>
                 {% endfor %}
                 

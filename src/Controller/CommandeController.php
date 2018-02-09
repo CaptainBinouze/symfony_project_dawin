@@ -73,4 +73,38 @@ class CommandeController extends Controller
         );
 
     }
+
+    /**
+     * @Route("/done", name="done_commande")
+     */
+    public function commandeDoneAction(Request $request)
+    {
+ 
+        $commande = $this->getDoctrine()->getRepository(Commande::class)->findBy(
+            array('statut' => '1'),         // Critere
+            array('created' => 'desc'),     // Tri
+            100,                            // Limite
+            0                               // Offset
+          );
+
+        return $this->render('commande/done.html.twig',
+            array('commandes' => $commande)
+        );
+
+    }
+
+    /**
+     *@Route("/traitees/{num}", name="trait_commande", requirements={"num"="\d+"})
+     */
+    public function commandeTraitAction($num)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $commande = $this->getDoctrine()->getRepository(Commande::class)->find($num);
+
+        $commande->setStatut(1);
+        $em->persist($commande);
+        $em->flush();
+
+        return $this->redirectToRoute('admin');
+    }
 }

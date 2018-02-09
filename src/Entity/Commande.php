@@ -68,6 +68,16 @@ class Commande
     }
 
     /**
+     * Get created.
+     *
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
      * Get telephone.
      *
      * @return string
@@ -88,7 +98,7 @@ class Commande
     /**
      * Get statut.
      *
-     * @return boolean
+     * @return int
      */
     public function getStatut()
     {
