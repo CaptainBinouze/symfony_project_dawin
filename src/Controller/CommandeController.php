@@ -42,7 +42,7 @@ class CommandeController extends Controller
             $user = $this->container->get('security.token_storage')->getToken()->getUser();
 
             $commande->setUser($user);
-            $commande->setStatut(false);
+            $commande->setStatut(0);
             $em->persist($commande);
             $em->flush();
 
@@ -53,5 +53,24 @@ class CommandeController extends Controller
             'commande/index.html.twig',
             array('form' => $form->createView())
         );
+    }
+
+    /**
+     * @Route("/waiting", name="waiting_commande")
+     */
+    public function commandeWaitingAction(Request $request)
+    {
+ 
+        $commande = $this->getDoctrine()->getRepository(Commande::class)->findBy(
+            array('statut' => '0'),         // Critere
+            array('created' => 'desc'),     // Tri
+            100,                            // Limite
+            0                               // Offset
+          );
+
+        return $this->render('commande/waiting.html.twig',
+            array('commandes' => $commande)
+        );
+
     }
 }

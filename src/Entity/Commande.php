@@ -32,7 +32,7 @@ class Commande
     private $telephone;
 
     /** 
-     * @ORM\OneToOne(targetEntity="User", cascade={"persist"}) 
+     * @ORM\ManyToOne(targetEntity="User", cascade={"persist"}) 
      */
     private $user;
 
